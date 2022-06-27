@@ -53,11 +53,11 @@ public class HotelManagementService {
 
 	public Hotel updateBooking(Hotel hotel) {
 
-		Hotel hotel = hotelManagementRepository.findById(hotel.getId()).orElse(null);
-		hotel.setName(hotel.getName());
-		hotel.setQuantity(hotel.getQuantity());
-		hotel.setPrice(hotel.getPrice());
-		return hotelManagementRepository.save(hotel);
+		Hotel existingBooking = hotelManagementRepository.findById(hotel.getId()).orElse(null);
+		existingBooking.setName(hotel.getName());
+		existingBooking.setQuantity(hotel.getQuantity());
+		existingBooking.setPrice(hotel.getPrice());
+		return hotelManagementRepository.save(existingBooking);
 	}
 
 }
